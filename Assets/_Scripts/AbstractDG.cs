@@ -12,7 +12,7 @@ public abstract class AbstractDG : MonoBehaviour
 
     public void GenerateDungeon()
     {
-        tilemapVis.clear();
+        tilemapVis.Clear();
         RunProceduralGeneration();
     }
 
