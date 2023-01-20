@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class WallGenerator
 {
-    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TilemapVisualizer tilemapVisualizer)
+    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TileMapVis tilemapVisualizer)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionsList);
         var cornerWallPositions = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionsList);
@@ -13,7 +13,7 @@ public static class WallGenerator
         CreateCornerWalls(tilemapVisualizer, cornerWallPositions, floorPositions);
     }
 
-    private static void CreateCornerWalls(TilemapVisualizer tilemapVisualizer, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
+    private static void CreateCornerWalls(TileMapVis tilemapVisualizer, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
     {
         foreach (var position in cornerWallPositions)
         {

@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class RandomWalkDungeonGenerator : AbstractDG 
 {
     [SerializeField]
-    protected randomWalkSO randomWalkParameters;
+    protected RandomWalkSO randomWalkParameters;
 
     protected override void RunProceduralGeneration()
     {
@@ -26,13 +26,13 @@ public class RandomWalkDungeonGenerator : AbstractDG
         tilemapVis.PaintFloorTiles(floorPosition);
     }
 
-    protected HashSet<Vector2Int> RunRandomWalk(randomWalkSO parameters, Vector2Int position)
+    protected HashSet<Vector2Int> RunRandomWalk(RandomWalkSO parameters, Vector2Int position)
     {
         var currentPosition = position;
         HashSet<Vector2Int> floorPosition = new HashSet<Vector2Int>();
         for (int i = 0; i < parameters.iterations; i++)
         {
-            var path = ProGenerationAlgoithms.SimpleRandomWalk(currentPosition, parameters.walkLength);
+            var path = ProGenerationAlgoithms.RandomWalk(currentPosition, parameters.walkLength);
             floorPosition.UnionWith(path);
             if (parameters.startRandomlyEachIteration)
                 currentPosition = floorPosition.ElementAt(Random.Range(0, floorPosition.Count));
