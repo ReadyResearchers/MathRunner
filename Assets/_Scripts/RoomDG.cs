@@ -16,7 +16,7 @@ public class RoomDG : RandomWalkDungeonGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
 
-    protected override void RunProGeneration()
+    protected void RunProGeneration()
     {
         CreateRooms();
     }
@@ -46,8 +46,8 @@ public class RoomDG : RandomWalkDungeonGenerator
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
-        TileMapVis.PaintFloorTiles(floor);
-        WallGenerator.CreateWalls(floor, TileMapVis);
+        tilemapVis.PaintFloorTiles(floor);
+        WallGenerator.CreateWalls(floor, tilemapVis);
     }
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)

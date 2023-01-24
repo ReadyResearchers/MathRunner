@@ -12,7 +12,7 @@ public class CorridorDG : RandomWalkDungeonGenerator
     [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
 
-    protected override void RunProceduralGeneration()
+    protected void RunProGeneration()
     {
         CorridorFirstGeneration();
     }
@@ -32,8 +32,8 @@ public class CorridorDG : RandomWalkDungeonGenerator
 
         floorPositions.UnionWith(roomPositions);
 
-        TileMapVis.PaintFloorTiles(floorPositions);
-        WallGenerator.CreateWalls(floorPositions, TileMapVis);
+        tilemapVis.PaintFloorTiles(floorPositions);
+        WallGenerator.CreateWalls(floorPositions, tilemapVis);
 
     }
 
@@ -89,7 +89,7 @@ public class CorridorDG : RandomWalkDungeonGenerator
 
         for (int i = 0; i < corridorCount; i++)
         {
-            var corridor = ProceduralGenerationAlgorithms.RandomWalkCorridor(currentPosition, corridorLength);
+            var corridor = ProGenerationAlgorithms.RandomWalkCorridor(currentPosition, corridorLength);
             currentPosition = corridor[corridor.Count - 1];
             potentialRoomPositions.Add(currentPosition);
             floorPositions.UnionWith(corridor);
