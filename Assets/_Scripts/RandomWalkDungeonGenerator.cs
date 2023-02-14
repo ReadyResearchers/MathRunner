@@ -24,6 +24,7 @@ public class RandomWalkDungeonGenerator : AbstractDG
         var currentPosition = position;
         HashSet<Vector2Int> floorPosition = new HashSet<Vector2Int>();
         for (int i = 0; i < parameters.iterations; i++)
+            Console.WriteLine(parameters);
         {
             var path = ProGenerationAlgorithms.SimpleRandomWalk(currentPosition, parameters.walkLength);
             floorPosition.UnionWith(path);
