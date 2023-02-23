@@ -6,7 +6,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class RandomWalkDungeonGenerator : AbstractDG 
+public class RandomWalkDG : AbstractDG 
 {
     [SerializeField]
     protected RandomWalkSO randomWalkParameters;

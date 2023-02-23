@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RoomDG : RandomWalkDungeonGenerator
+public class RoomDG : RandomWalkDG
 {
     [SerializeField]
     private int minRoomWidth = 4, minRoomHeight = 4;

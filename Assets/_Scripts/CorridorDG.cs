@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CorridorDG : RandomWalkDungeonGenerator
+public class CorridorDG : RandomWalkDG
 {
     [SerializeField]
     private int corridorLength = 14, corridorCount = 5;
