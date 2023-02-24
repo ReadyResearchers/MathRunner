@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-//[CustomEditor(typeof(AbstractDG), true)]
+[CustomEditor(typeof(AbstractDG), true)]
 
 public class DungeonEditor : Editor
 {
@@ -14,9 +14,9 @@ public class DungeonEditor : Editor
         generator = (AbstractDG)target;
     }
 
-    public override void OnInspectionGUI()
+    public override void OnInspectorGUI()
     {
-        base.OnInspectionGUI();
+        base.OnInspectorGUI();
         if (GUILayout.Button("Create Dungeon"))
         {
             generator.GenerateDungeon();

@@ -5,15 +5,15 @@ using UnityEngine;
 
 public static class WallGenerator
 {
-    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TileMapVis tilemapVisualizer)
+    public static void CreateWalls(HashSet<Vector2Int> floorPositions, TileMapVis tilemapVis)
     {
         var basicWallPositions = FindWallsInDirections(floorPositions, Direction2D.cardinalDirectionsList);
         var cornerWallPositions = FindWallsInDirections(floorPositions, Direction2D.diagonalDirectionsList);
-        CreateBasicWall(tilemapVisualizer, basicWallPositions, floorPositions);
-        CreateCornerWalls(tilemapVisualizer, cornerWallPositions, floorPositions);
+        CreateBasicWall(tilemapVis, basicWallPositions, floorPositions);
+        CreateCornerWalls(tilemapVis, cornerWallPositions, floorPositions);
     }
 
-    private static void CreateCornerWalls(TileMapVis tilemapVisualizer, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
+    private static void CreateCornerWalls(TileMapVis tilemapVis, HashSet<Vector2Int> cornerWallPositions, HashSet<Vector2Int> floorPositions)
     {
         foreach (var position in cornerWallPositions)
         {
@@ -30,11 +30,11 @@ public static class WallGenerator
                     neighboursBinaryType += "0";
                 }
             }
-            tilemapVisualizer.PaintSingleCornerWall(position, neighboursBinaryType);
+            tilemapVis.PaintSingleCornerWall(position, neighboursBinaryType);
         }
     }
 
-    private static void CreateBasicWall(TileMapVis tilemapVisualizer, HashSet<Vector2Int> basicWallPositions, HashSet<Vector2Int> floorPositions)
+    private static void CreateBasicWall(TileMapVis tilemapVis, HashSet<Vector2Int> basicWallPositions, HashSet<Vector2Int> floorPositions)
     {
         foreach (var position in basicWallPositions)
         {
@@ -51,7 +51,7 @@ public static class WallGenerator
                     neighboursBinaryType += "0";
                 }
             }
-            tilemapVisualizer.PaintSingleBasicWall(position, neighboursBinaryType);
+            tilemapVis.PaintSingleBasicWall(position, neighboursBinaryType);
         }
     }
 
