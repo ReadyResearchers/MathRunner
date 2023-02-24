@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: bf692fe1b69b03240883841b3718382e, type: 3}
   m_Name: SimpleRandomWalkParameters_SmallDun
-  m_EditorClassIdentifier: Assembly-CSharp::RandomWalkSO
+  m_EditorClassIdentifier: 
   iterations: 20
   walkLength: 20
   startRandomlyEachIteration: 1
