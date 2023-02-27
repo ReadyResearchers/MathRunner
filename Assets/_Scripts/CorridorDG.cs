@@ -14,10 +14,10 @@ public class CorridorDG : RandomWalkDG
 
     protected void RunProGeneration()
     {
-        CorridorDG();
+        CorridorGen();
     }
 
-    private void CorridorDG()
+    private void CorridorGen()
     {
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
         HashSet<Vector2Int> potentialRoomPositions = new HashSet<Vector2Int>();
