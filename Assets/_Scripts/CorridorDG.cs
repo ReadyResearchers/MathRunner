@@ -59,7 +59,6 @@ public class CorridorDG : RandomWalkDG
             {
                 if (floorPositions.Contains(position + direction))
                     neighboursCount++;
-
             }
             if (neighboursCount == 1)
                 deadEnds.Add(position);
