@@ -12,7 +12,7 @@ public class CorridorDG : RandomWalkDG
     [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
 
-    protected void RunProGeneration()
+    protected override void RunProceduralGeneration()
     {
         CorridorGen();
     }
