@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ItemPlacer
+public class ItemPlacerHelp
 {
     Dictionary<PlacementType, HashSet<Vector2Int>>
         tileByType = new Dictionary<PlacementType, HashSet<Vector2Int>>();
 
-    HashSet<Vector2Int> roomFloorNoCorridor; 
+    HashSet<Vector2Int> roomFloorNoCorridor;
 
-    public ItemPlacer(HashSet<Vector2Int> roomFloor,
+    public ItemPlacerHelp(HashSet<Vector2Int> roomFloor,
         HashSet<Vector2Int> roomFloorNoCorridor)
     {
         Graph graph = new Graph(roomFloor);
@@ -30,20 +30,20 @@ public class ItemPlacer
         }
     }
 
-    public Vector2? GetItemPlacementPosition(PlacementType placementType, int iterationsMax, Vector2Int)
+    public Vector2? GetItemPlacementPosition(PlacementType placementType, int iterationsMax, Vector2?)
     {
         int itemArea = size.x * size.y;
         if (tileByType[placementType].Count < itemArea)
             return null;
 
-        int iteration = 0; 
-        while(iteration < iterationsMax)
+        int iteration = 0;
+        while (iteration < iterationsMax)
         {
             iteration++;
             int index = UnityEngine.Random.Range(0, tileByType[placementType].Count);
             Vector2Int position = tileByType[placementType].ElementAt(index);
 
-            if( itemArea > 1)
+            if (itemArea > 1)
             {
                 var (result, placementPositions) = PlaceBigItem(position, size, addOffset);
                 if (rsult == false)
@@ -63,7 +63,7 @@ public class ItemPlacer
 
     private (bool, List<Vector2Int>) placeBigItem(
         Vector2Int originPosition,
-        Vector2Int size, 
+        Vector2Int size,
         bool addOffset)
     {
         List<Vector2Int> positions = new List<Vector2Int>() { originPosition };
@@ -72,9 +72,9 @@ public class ItemPlacer
         int minX = addOffset ? -1 : 0;
         int minY = addOffset ? -1 : 0;
 
-        for(int row = minX; row <= maxX; row++)
+        for (int row = minX; row <= maxX; row++)
         {
-            for(int col = minY; col <= maxY; col++)
+            for (int col = minY; col <= maxY; col++)
             {
                 if (col == 0 && row == 0)
                     continue;
