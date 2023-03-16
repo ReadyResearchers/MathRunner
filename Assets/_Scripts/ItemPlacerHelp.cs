@@ -30,7 +30,7 @@ public class ItemPlacerHelp
         }
     }
 
-    public Vector2? GetItemPlacementPosition(PlacementType placementType, int iterationsMax, Vector2?)
+    public Vector2? GetItemPlacementPosition(PlacementType placementType, int iterationsMax, Vector2Int)
     {
         int itemArea = size.x * size.y;
         if (tileByType[placementType].Count < itemArea)
@@ -88,4 +88,10 @@ public class ItemPlacerHelp
         return (true, positions);
     }
 
+}
+
+public enum PlacementType
+{
+    OpenSpace,
+    NearWall
 }
