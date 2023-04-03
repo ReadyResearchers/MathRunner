@@ -20,11 +20,15 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveS * Time.fixedDeltaTime);
+    }
+
+    private void Move()
+    {
+        rb.velocity = new Vector2(movement.x, movement.y);
     }
 }
